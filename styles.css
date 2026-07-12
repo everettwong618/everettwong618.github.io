@@ -1170,6 +1170,17 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   border-color: rgba(20, 184, 166, 0.35);
 }
 .project-card h3 { margin: 0.35rem 0 0.75rem; }
+.project-card-text {
+  padding: 1.25rem 1.15rem;
+  border-left: 2px solid rgba(20, 184, 166, 0.35);
+}
+.project-card-text h3 { margin-top: 0.2rem; }
+.project-role {
+  font-size: 0.72rem;
+  color: var(--teal);
+  margin: 0.85rem 0 0.65rem;
+  letter-spacing: 0.04em;
+}
 .case-snip {
   font-size: 0.95rem;
   color: var(--text-muted);
