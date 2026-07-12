@@ -78,7 +78,6 @@
   }
 
   // Availability: flip data-availability on .availability-pill / .availability-inline
-  // to "booked" when fully booked. Optional helper:
   // window.setAvailability("open" | "booked")
   window.setAvailability = (state) => {
     const value = state === "booked" ? "booked" : "open";
@@ -86,30 +85,15 @@
       el.setAttribute("data-availability", value);
       if (el.classList.contains("availability-pill")) {
         const text = el.querySelector(".availability-text");
-        if (text) text.textContent = value === "booked" ? "Booked" : "Available";
+        if (text) text.textContent = value === "booked" ? "Not seeking" : "Open to roles";
       }
       const label = el.querySelector(".availability-label");
       if (label) {
         label.textContent =
           value === "booked"
-            ? "Currently fully booked"
-            : "Currently accepting new projects";
+            ? "Not currently seeking new opportunities"
+            : "Open to internships and professional opportunities";
       }
     });
   };
-
-  // Contact form: if Formspree placeholder remains, fall back to mailto
-  const form = document.getElementById("contact-form");
-  form?.addEventListener("submit", (e) => {
-    const action = form.getAttribute("action") || "";
-    if (action.includes("YOUR_FORM_ID")) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = data.get("name") || "";
-      const email = data.get("email") || "";
-      const message = data.get("message") || "";
-      const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}`);
-      window.location.href = `mailto:everettwong.studio@gmail.com?subject=${encodeURIComponent("Website inquiry")}&body=${body}`;
-    }
-  });
 })();

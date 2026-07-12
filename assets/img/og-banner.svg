@@ -2,15 +2,16 @@
   <rect width="1200" height="630" fill="#0B1120"/>
   <defs>
     <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M48 0H0V48" fill="none" stroke="#14B8A6" stroke-opacity="0.12"/>
+      <path d="M48 0H0V48" fill="none" stroke="#14B8A6" stroke-opacity="0.1"/>
     </pattern>
   </defs>
   <rect width="1200" height="630" fill="url(#grid)"/>
   <rect x="72" y="72" width="12" height="120" fill="#7A1E2C"/>
   <text x="108" y="130" fill="#14B8A6" font-family="ui-monospace, monospace" font-size="28">EW_</text>
-  <text x="108" y="260" fill="#F9FAFB" font-family="Georgia, serif" font-size="72" font-weight="700">Everett Wong</text>
-  <text x="108" y="330" fill="#14B8A6" font-family="ui-monospace, monospace" font-size="28">Web Developer + MMET Student</text>
-  <text x="108" y="390" fill="#F9FAFB" fill-opacity="0.7" font-family="Georgia, serif" font-size="28">College Station, TX — everettwong618.github.io</text>
-  <circle cx="980" cy="315" r="120" fill="none" stroke="#14B8A6" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="108" y="250" fill="#F9FAFB" font-family="system-ui, sans-serif" font-size="68" font-weight="700">Everett Wong</text>
+  <text x="108" y="320" fill="#14B8A6" font-family="ui-monospace, monospace" font-size="26">MMET Student · Texas A&amp;M</text>
+  <text x="108" y="380" fill="#F9FAFB" fill-opacity="0.7" font-family="system-ui, sans-serif" font-size="24">College Station, TX — everettwong618.github.io</text>
+  <circle cx="980" cy="315" r="120" fill="none" stroke="#14B8A6" stroke-opacity="0.45" stroke-width="2"/>
   <circle cx="980" cy="315" r="70" fill="none" stroke="#7A1E2C" stroke-opacity="0.8" stroke-width="3"/>
+  <circle cx="980" cy="315" r="8" fill="#14B8A6" fill-opacity="0.7"/>
 </svg>

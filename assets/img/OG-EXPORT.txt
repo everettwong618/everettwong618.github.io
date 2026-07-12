@@ -1,0 +1,27 @@
+# Open Graph image (LinkedIn / Instagram)
+
+## Live file
+- Preferred: `assets/img/og-banner.png` (1200×630)
+- Fallback source: `assets/img/og-banner.svg`
+
+## Spec
+| Property | Value |
+|----------|--------|
+| Size | **1200 × 630 px** |
+| Format | PNG (RGB) |
+| Safe margin | Keep text ~80px from edges |
+| Background | `#0B1120` |
+| Accent | Maroon `#7A1E2C`, Teal `#14B8A6` |
+| Text | Warm white `#F9FAFB` |
+
+## Content to show
+1. `EW_`
+2. **Everett Wong**
+3. MMET Student · Texas A&M
+4. College Station, TX — everettwong618.github.io
+
+## After replacing the PNG
+Meta tags in `index.html` already point at:
+`https://everettwong618.github.io/assets/img/og-banner.png`
+
+Test with LinkedIn Post Inspector after deploy.

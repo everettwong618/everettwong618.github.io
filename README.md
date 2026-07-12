@@ -1,57 +1,34 @@
 # Everett Wong — Personal Website
 
-Custom-coded, free-to-host personal site built from the design masterplan (employer-first editorial site) with audit upgrades (SEO, FAQ, case studies, availability, local landing page).
+Custom-coded, free-to-host personal site — employer-first editorial brand with light freelance signal.
+
+**Live:** https://everettwong618.github.io/
 
 ## Stack
 
 - HTML / CSS / JavaScript
-- Host on **GitHub Pages** (or Netlify if you want native forms)
-
-## Folder
-
-```
-website/
-  index.html
-  faq.html
-  privacy.html
-  404.html
-  college-station-web-design.html
-  styles.css
-  script.js
-  blog/
-  assets/img/
-```
+- Host: **GitHub Pages**
 
 ## Run locally
 
 ```bash
 cd website
-npx --yes serve .
+python -m http.server 5500
 ```
 
-Then open the URL shown in the terminal.
+Open http://127.0.0.1:5500/
 
-## Before launch — fill these in
+## Still to add (when you have them)
 
-1. **Social URLs** — confirm LinkedIn and Fiverr links (email is set to `everettwong.studio@gmail.com`).
-2. **Formspree** — create a free form at formspree.io and replace `YOUR_FORM_ID` in `index.html`.
-3. **Headshot** — drop a WebP/JPG into `assets/img/` and swap the photo placeholder in About.
-4. **Resume** — add `assets/img/Everett-Wong-Resume.pdf`, then point the Credibility Resume card back to that file (currently “request via email”).
-5. **OG image** — export `assets/img/og-banner.svg` to a 1200×630 PNG named `og-banner.png` (Canva works), or point meta tags at the SVG if your host serves it.
-6. **Availability** — in the browser console: `setAvailability('booked')` or `'open'`. Or edit `data-availability` in the HTML.
-7. **Skheduel** — replace the CSS mockup with real screenshots when you have them; tweak case-study copy if needed.
+1. **LinkedIn URL** — paste the real profile link; currently omitted so nothing is guessed.
+2. **Headshot** — drop WebP/JPG into `assets/img/` and swap the About identity panel for a `.photo-frame` image.
+3. **Resume PDF** — add `assets/img/Everett-Wong-Resume.pdf` and point the Credibility Resume card to it.
+4. **Skheduel screenshots** — replace the interface overview board; update stack line with real tech.
+5. **Optional Formspree** — only if you want a form again; contact is mailto-only for trust.
 
-## Audit items you still do outside the code
+## Design notes
 
-- Google Business Profile (Web Designer · College Station / Bryan)
-- LinkedIn headline + Featured link to this site (https://everettwong618.github.io/)
-- Google Search Console + sitemap after the site is live
-- Optional custom domain later (e.g. everettwong.dev) → point DNS at GitHub Pages
-
-## Design notes followed
-
-- Dark-first palette (navy / maroon / teal)
-- Section rhythm: dark ↔ light ↔ split ↔ statement band
-- `EW_` monogram, mono section labels, blueprint hero grid
-- Projects before services; credibility instead of fake reviews
-- Reduced-motion respected; light theme toggle included
+- Dark-first navy / maroon / teal
+- Projects carry more visual weight than Skills / Services
+- No fake reviews or placeholder social links
+- OG share image: `assets/img/og-banner.png` (see `OG-EXPORT.txt`)
