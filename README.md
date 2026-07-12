@@ -21,7 +21,7 @@ Open http://127.0.0.1:5500/
 ## Still to add (when you have them)
 
 1. **LinkedIn URL** — paste the real profile link; currently omitted so nothing is guessed.
-2. **Headshot** — drop WebP/JPG into `assets/img/` and swap the About identity panel for a `.photo-frame` image.
+2. **Headshot** — added (`assets/img/everett-wong-headshot.png`).
 3. **Resume PDF** — add `assets/img/Everett-Wong-Resume.pdf` and point the Credibility Resume card to it.
 4. **Skheduel screenshots** — replace the interface overview board; update stack line with real tech.
 5. **Optional Formspree** — only if you want a form again; contact is mailto-only for trust.
