@@ -717,36 +717,14 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(11, 17, 32, 0.62);
+  background: rgba(11, 17, 32, 0.35);
   opacity: 0;
   transition: opacity var(--fast) var(--ease);
   z-index: 2;
+  pointer-events: none;
 }
 .project-card:hover .project-thumb::after,
 .project.featured:hover .project-thumb::after { opacity: 1; }
-.project-read-cue {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -40%);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--warm-white);
-  border: 1px solid rgba(249, 250, 251, 0.35);
-  padding: 0.4rem 0.7rem;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease);
-  pointer-events: none;
-}
-.project-card:hover .project-read-cue,
-.project.featured:hover .project-read-cue {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
 .featured-thumb { aspect-ratio: 4 / 3; min-height: 260px; }
 
 /* Project mockups */
