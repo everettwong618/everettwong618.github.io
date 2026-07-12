@@ -407,7 +407,13 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   gap: 3rem;
   align-items: center;
 }
-.hero-copy h1 { margin-bottom: 1.25rem; max-width: 14ch; }
+.case-summary {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  margin: 0.35rem 0 1rem;
+  max-width: 52ch;
+}
+.hero-copy h1 { margin-bottom: 1.25rem; max-width: min(22ch, 100%); }
 .hero-sub {
   font-size: 1.1rem;
   color: var(--text-muted);
