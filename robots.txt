@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://everettwong618.github.io/sitemap.xml
