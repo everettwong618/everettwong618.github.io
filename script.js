@@ -59,9 +59,12 @@
     sections.forEach((s) => io.observe(s));
   }
 
-  // Scroll reveal
+  // Scroll reveal (skip motion when reduced-motion is preferred)
   const reveals = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    reveals.forEach((el) => el.classList.add("is-visible"));
+  } else {
     const revealIo = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -73,8 +76,6 @@
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
     reveals.forEach((el) => revealIo.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add("is-visible"));
   }
 
   // Availability: flip data-availability on .availability-pill / .availability-inline

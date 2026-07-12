@@ -20,11 +20,15 @@ html { scroll-behavior: smooth; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 1.025rem;
+  font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--text);
   background: var(--bg);
@@ -53,6 +57,23 @@ p:last-child { margin-bottom: 0; }
   border-radius: 4px;
 }
 .skip-link:focus { top: 1rem; }
+
+/* Focus visibility (keyboard / a11y) */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.btn:focus-visible,
+.theme-toggle:focus-visible,
+.nav-toggle:focus-visible,
+.cred-card:focus-visible,
+.text-link:focus-visible,
+.nav a:focus-visible,
+.logo:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
 
 /* 2. Root variables */
 :root {
@@ -195,7 +216,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease),
     color var(--fast) var(--ease), transform var(--fast) var(--ease);
 }
-.btn-sm { min-height: 38px; padding: 0.45rem 0.9rem; font-size: 0.85rem; }
+.btn-sm { min-height: 44px; padding: 0.5rem 0.95rem; font-size: 0.85rem; }
 .btn-primary {
   background: var(--maroon);
   color: var(--warm-white);
@@ -326,8 +347,8 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
 }
 .theme-toggle {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 4px;
   border: 1px solid var(--line);
   background: transparent;
@@ -348,8 +369,8 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
 }
 .nav-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   background: transparent;
   border-radius: 4px;
@@ -557,6 +578,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   border-radius: 4px;
   opacity: 0.9;
 }
+.photo-frame picture,
 .photo-frame img {
   position: relative;
   z-index: 1;
@@ -569,6 +591,8 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   display: block;
   background: #e8e8ea;
 }
+.photo-frame picture { border: 0; background: transparent; }
+.photo-frame picture img { border: 1px solid var(--line-dark); }
 .stat-row {
   list-style: none;
   display: grid;
@@ -1402,41 +1426,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   font-size: 0.88rem;
   opacity: 0.7;
 }
-.contact-form {
-  background: #fff;
-  border: 1px solid var(--line-dark);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-  display: grid;
-  gap: 0.9rem;
-}
-.contact-form h3 { margin-bottom: 0.25rem; }
-.contact-form label {
-  display: grid;
-  gap: 0.35rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid var(--line-dark);
-  border-radius: 4px;
-  padding: 0.7rem 0.8rem;
-  background: #fff;
-  color: var(--charcoal);
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: 2px solid rgba(20, 184, 166, 0.45);
-  border-color: var(--teal);
-}
-.form-note {
-  font-size: 0.8rem;
-  opacity: 0.65;
-  margin: 0;
-}
 
 /* 15. Footer */
 .site-footer {
@@ -1614,6 +1603,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
 
 @media (max-width: 640px) {
   :root { --section-y: 56px; }
+  body { font-size: 1rem; }
   .container { width: min(100% - 1.5rem, var(--max)); }
   .cred-grid,
   .cred-grid-3,
