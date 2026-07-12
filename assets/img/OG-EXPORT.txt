@@ -1,27 +1,22 @@
-# Open Graph image (LinkedIn / Instagram)
+# Open Graph image
 
-## Live file
-- Preferred: `assets/img/og-banner.png` (1200×630)
-- Fallback source: `assets/img/og-banner.svg`
+## File
+`assets/img/og-banner.png` — **1200 × 630** PNG
 
-## Spec
-| Property | Value |
-|----------|--------|
-| Size | **1200 × 630 px** |
-| Format | PNG (RGB) |
-| Safe margin | Keep text ~80px from edges |
-| Background | `#0B1120` |
-| Accent | Maroon `#7A1E2C`, Teal `#14B8A6` |
-| Text | Warm white `#F9FAFB` |
+## Design
+- Dark navy `#0B1120`
+- Centered `EW_` monogram (teal)
+- Large high-contrast name: **Everett Wong**
+- Subtitle: MMET Student at Texas A&M | Web Developer
+- Subtle teal blueprint grid
+- Safe margins; text centered for thumbnail readability
 
-## Content to show
-1. `EW_`
-2. **Everett Wong**
-3. MMET Student · Texas A&M
-4. College Station, TX — everettwong618.github.io
+## Regenerate
+```bash
+python assets/img/_make_og.py
+```
 
-## After replacing the PNG
-Meta tags in `index.html` already point at:
-`https://everettwong618.github.io/assets/img/og-banner.png`
+## Metadata
+`index.html` sets `og:title`, `og:description`, `og:image`, `og:image:width` (1200), `og:image:height` (630), and `twitter:card` = `summary_large_image`.
 
-Test with LinkedIn Post Inspector after deploy.
+After deploy, refresh LinkedIn’s Post Inspector / Facebook Sharing Debugger if the old preview is cached.
