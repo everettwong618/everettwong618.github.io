@@ -729,13 +729,46 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
 .project.featured {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
-  gap: 1.75rem;
+  gap: 2rem;
   border: 1px solid rgba(20, 184, 166, 0.35);
   border-radius: var(--radius);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(145deg, rgba(20, 184, 166, 0.06), transparent 55%);
+  padding: 1.5rem 1.35rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(145deg, rgba(20, 184, 166, 0.07), transparent 55%);
   position: relative;
+  align-items: start;
+}
+.project.featured .project-body h3 {
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  margin-bottom: 0.35rem;
+}
+.case-meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.1rem;
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0;
+  border-block: 1px solid var(--line);
+}
+.case-meta li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.case-meta span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.15rem;
+}
+.project.featured .case-block h4 {
+  font-size: 0.72rem;
+}
+.project.featured .case-block {
+  margin: 0.85rem 0;
 }
 .project.featured::before {
   content: "";
