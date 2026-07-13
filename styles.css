@@ -446,7 +446,17 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
   margin-bottom: 1.75rem;
   letter-spacing: 0.02em;
 }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+.hero-actions .btn {
+  position: relative;
+  z-index: 2;
+}
+.contact-copy .hero-actions .btn {
+  pointer-events: auto;
+}
 .geo-frame { position: relative; max-width: 380px; margin-inline: auto; }
 .geo-panel {
   position: absolute;

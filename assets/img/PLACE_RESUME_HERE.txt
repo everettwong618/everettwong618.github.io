@@ -1,1 +1,4 @@
-Place Everett-Wong-Resume.pdf in this folder, then the Credibility section download link will work.
+Replace this file anytime with an updated resume.
+
+Current: summer resume copy as Everett-Wong-Resume.pdf
+Hero + credibility "Download Resume" links use this path.

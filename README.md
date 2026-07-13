@@ -16,7 +16,7 @@ python -m http.server 5500
 |------|--------|
 | LinkedIn URL | Added — https://www.linkedin.com/in/everett-wong-8390b1276 |
 | GitHub URL | Same |
-| Resume PDF | Use **Request Resume** mailto until `assets/img/Everett-Wong-Resume.pdf` exists |
+| Resume PDF | Wired — `assets/img/Everett-Wong-Resume.pdf` (summer resume for now) |
 | Skhedule screenshots | Live in case study (cropped; email/dev chrome removed) |
 | Skhedule stack | Published — Next.js 15 · TS · Prisma · Postgres · JWT · Nodemailer · Vercel |
 | Skhedule brand | **Skhedule**; live https://skhedule.vercel.app |
