@@ -97,4 +97,24 @@
       }
     });
   };
+  // Copy email — more reliable than mailto when no default mail app is set
+  document.querySelectorAll("[data-email]").forEach((btn) => {
+    const idle = btn.textContent.trim();
+    btn.addEventListener("click", async () => {
+      const email = btn.getAttribute("data-email");
+      if (!email) return;
+      try {
+        await navigator.clipboard.writeText(email);
+        btn.textContent = "Copied!";
+        btn.setAttribute("aria-live", "polite");
+      } catch {
+        window.prompt("Copy this email address:", email);
+        btn.textContent = "Copy email";
+        return;
+      }
+      window.setTimeout(() => {
+        btn.textContent = idle;
+      }, 2000);
+    });
+  });
 })();
