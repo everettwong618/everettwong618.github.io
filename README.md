@@ -14,11 +14,12 @@ python -m http.server 5500
 ## Owner assets still needed
 | Item | Status |
 |------|--------|
-| LinkedIn URL | Not on site until you confirm the real URL |
+| LinkedIn URL | Added — https://www.linkedin.com/in/everett-wong-8390b1276 |
 | GitHub URL | Same |
 | Resume PDF | Use **Request Resume** mailto until `assets/img/Everett-Wong-Resume.pdf` exists |
-| Skheduel screenshots | Wireframe concept in place until real captures |
-| Skheduel stack | Confirm tech list to publish accurately |
+| Skhedule screenshots | Live in case study (cropped; email/dev chrome removed) |
+| Skhedule stack | Published — Next.js 15 · TS · Prisma · Postgres · JWT · Nodemailer · Vercel |
+| Skhedule brand | **Skhedule**; live https://skhedule.vercel.app |
 | Formspree | Not used — mailto contact only |
 
 ## Audit status (9-pass loop)
