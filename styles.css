@@ -1444,6 +1444,7 @@ button.btn {
 }
 .page-footer-nav a:hover { color: var(--teal); }
 .page-hero h1 { margin-bottom: 0.75rem; }
+.page-hero .hero-actions { margin-top: 1.5rem; }
 .prose { max-width: var(--read); }
 .prose h2 { margin-top: 2rem; }
 .faq-list details {
