@@ -3,21 +3,16 @@
   const header = document.getElementById("site-header");
   const nav = document.getElementById("primary-nav");
   const toggle = document.querySelector(".nav-toggle");
-  const themeBtn = document.querySelector(".theme-toggle");
   const year = document.getElementById("year");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Theme
-  const stored = localStorage.getItem("ew-theme");
-  if (stored === "light" || stored === "dark") {
-    doc.setAttribute("data-theme", stored);
-  }
+  // Theme toggle kept as no-op storage for satellite pages that still show the control.
+  // Homepage ships dark-only; light theme not polished (REDESIGN-PLAN §12).
+  const themeBtn = document.querySelector(".theme-toggle");
   themeBtn?.addEventListener("click", () => {
-    const next = doc.getAttribute("data-theme") === "light" ? "dark" : "light";
-    doc.setAttribute("data-theme", next);
-    localStorage.setItem("ew-theme", next);
+    /* dark-only */
   });
 
   // Mobile nav
@@ -65,9 +60,8 @@
     sections.forEach((s) => io.observe(s));
   }
 
-  // Scroll reveal with stagger index
+  // Scroll reveal
   const reveals = document.querySelectorAll(".reveal");
-  reveals.forEach((el, i) => el.style.setProperty("--reveal-i", String(i % 6)));
   if (reduceMotion || !("IntersectionObserver" in window)) {
     reveals.forEach((el) => el.classList.add("is-visible"));
   } else {
@@ -84,85 +78,7 @@
     reveals.forEach((el) => revealIo.observe(el));
   }
 
-  // Blueprint / plotter hero entrance
-  const hero = document.querySelector(".hero");
-  const armHero = () => {
-    if (!hero) return;
-    hero.classList.remove("is-entering");
-    hero.classList.add("is-ready");
-  };
-  if (hero) {
-    if (reduceMotion) {
-      armHero();
-    } else {
-      requestAnimationFrame(() => requestAnimationFrame(armHero));
-    }
-  }
-
-  // Interactive schematic: parallax + hotspots / revision cycle
-  const geoFrame = document.getElementById("geo-frame");
-  const revLabel = document.getElementById("schematic-rev");
-  const callout = document.getElementById("schematic-callout");
-  const revisions = ["TOL ±0.1 · REV A", "TOL ±0.1 · REV B", "TOL ±0.05 · REV C"];
-  let revIndex = 1;
-  const hotspotCopy = {
-    tol: "Tolerance band on critical dimension — keep stack-ups honest.",
-    rev: "Click to cycle drawing revision (A → B → C).",
-    focal: "Primary datum / focal — everything references this center.",
-  };
-
-  if (geoFrame && !reduceMotion) {
-    const setParallax = (clientX, clientY) => {
-      const rect = geoFrame.getBoundingClientRect();
-      const x = ((clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((clientY - rect.top) / rect.height - 0.5) * 2;
-      geoFrame.style.setProperty("--px", String((x * 14).toFixed(2)));
-      geoFrame.style.setProperty("--py", String((y * 10).toFixed(2)));
-    };
-    geoFrame.addEventListener("pointermove", (e) => setParallax(e.clientX, e.clientY));
-    geoFrame.addEventListener("pointerleave", () => {
-      geoFrame.style.setProperty("--px", "0");
-      geoFrame.style.setProperty("--py", "0");
-    });
-  }
-
-  document.querySelectorAll(".schematic-hotspot").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const key = btn.getAttribute("data-hotspot");
-      document.querySelectorAll(".schematic-hotspot").forEach((b) => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      if (key === "rev" && revLabel) {
-        revIndex = (revIndex + 1) % revisions.length;
-        revLabel.textContent = revisions[revIndex];
-      }
-      if (callout && key && hotspotCopy[key]) {
-        callout.hidden = false;
-        callout.textContent = hotspotCopy[key];
-        window.clearTimeout(callout._hideTimer);
-        callout._hideTimer = window.setTimeout(() => {
-          callout.hidden = true;
-          btn.classList.remove("is-active");
-        }, 3200);
-      }
-    });
-  });
-
-  // Magnetic primary CTAs
-  if (!reduceMotion) {
-    document.querySelectorAll(".btn-magnetic").forEach((btn) => {
-      btn.addEventListener("pointermove", (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.18}px, ${y * 0.22}px)`;
-      });
-      btn.addEventListener("pointerleave", () => {
-        btn.style.transform = "";
-      });
-    });
-  }
-
-  // Skhedule evidence chapter stage sync
+  // Skhedule evidence stage sync
   const evidenceSteps = [...document.querySelectorAll(".evidence-step")];
   const evidenceFrames = [...document.querySelectorAll(".evidence-frame")];
   const setEvidenceStage = (stage) => {
@@ -200,7 +116,7 @@
     });
   });
 
-  // Availability: flip data-availability on .availability-pill / .availability-inline
+  // Availability
   window.setAvailability = (state) => {
     const value = state === "booked" ? "booked" : "open";
     document.querySelectorAll("[data-availability]").forEach((el) => {
@@ -240,19 +156,22 @@
     });
   });
 
-  // Command palette (Ctrl/Cmd + K)
+  // Command palette
   const palette = document.getElementById("cmd-palette");
   const cmdInput = document.getElementById("cmd-input");
   const cmdList = document.getElementById("cmd-list");
   const commands = [
     { label: "Projects", hint: "Selected work", href: "#projects", keywords: "work portfolio" },
     { label: "Skhedule", hint: "Featured case", href: "#skhedule", keywords: "app invite capacity" },
-    { label: "Resume", hint: "PDF download", href: "assets/img/Everett-Wong-Resume.pdf", keywords: "cv download", download: "Everett-Wong-Resume.pdf" },
-    { label: "Contact", hint: "Email / LinkedIn", href: "#contact", keywords: "hire internship" },
-    { label: "LinkedIn", hint: "Profile", href: "https://www.linkedin.com/in/everett-wong-8390b1276", keywords: "network social", external: true },
+    { label: "MMET 281 case", hint: "Process & materials", href: "case-mmet281.html", keywords: "hinge dfm fusion" },
+    { label: "Experience", hint: "Roles", href: "#experience", keywords: "work jobs" },
+    { label: "Skills", hint: "Tools", href: "#skills", keywords: "cad manufacturing" },
+    { label: "MMET", hint: "Major explainer", href: "#mmet", keywords: "engineering" },
     { label: "About", hint: "Bio", href: "#about", keywords: "who me" },
-    { label: "MMET", hint: "Major explainer", href: "#mmet", keywords: "engineering major" },
-    { label: "Live Skhedule app", hint: "skhedule.vercel.app", href: "https://skhedule.vercel.app", keywords: "demo", external: true },
+    { label: "Contact", hint: "Email / LinkedIn", href: "#contact", keywords: "hire internship" },
+    { label: "Résumé", hint: "PDF download", href: "assets/img/Everett-Wong-Resume.pdf", keywords: "cv download", download: "Everett-Wong-Resume.pdf" },
+    { label: "LinkedIn", hint: "Profile", href: "https://www.linkedin.com/in/everett-wong-8390b1276", keywords: "network", external: true },
+    { label: "Live Skhedule", hint: "skhedule.vercel.app", href: "https://skhedule.vercel.app", keywords: "demo", external: true },
   ];
   let cmdIndex = 0;
   let filtered = commands;
@@ -283,7 +202,7 @@
     palette.hidden = false;
     document.body.classList.add("cmd-open");
     renderCommands("");
-    cmdInput.value = "";
+    if (cmdInput) cmdInput.value = "";
     window.setTimeout(() => cmdInput?.focus(), 10);
   };
   const closePalette = () => {
@@ -309,13 +228,11 @@
       return;
     }
     if (cmd.href.startsWith("#")) {
-      const target = document.querySelector(cmd.href);
-      target?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      document.querySelector(cmd.href)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
       return;
     }
     window.location.href = cmd.href;
   };
-
   const paintActive = () => {
     cmdList?.querySelectorAll(".cmd-item").forEach((el, i) => {
       el.classList.toggle("is-active", i === cmdIndex);
@@ -360,12 +277,10 @@
   cmdList?.addEventListener("click", (e) => {
     const btn = e.target.closest(".cmd-item");
     if (!btn || btn.disabled) return;
-    const i = Number(btn.getAttribute("data-i"));
-    runCommand(filtered[i]);
+    runCommand(filtered[Number(btn.getAttribute("data-i"))]);
   });
   palette?.querySelector("[data-cmd-close]")?.addEventListener("click", closePalette);
 
-  // Windows/Linux kbd hint
   const kbd = document.querySelector(".cmd-kbd");
   if (kbd && !(/Mac|iPhone|iPad/i.test(navigator.platform || navigator.userAgent))) {
     kbd.textContent = "Ctrl K";
