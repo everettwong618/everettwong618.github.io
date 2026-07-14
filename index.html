@@ -76,6 +76,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="site-header">
+    <div class="read-progress" aria-hidden="true"><span class="read-progress-bar" id="read-progress-bar"></span></div>
     <div class="container header-inner">
       <a class="logo" href="#top" aria-label="Everett Wong home">EW<span class="cursor-blink" aria-hidden="true">_</span></a>
 
@@ -96,7 +97,7 @@
         <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
           <span class="theme-icon" aria-hidden="true"></span>
         </button>
-        <a class="btn btn-sm btn-primary header-cta" href="#contact">Contact</a>
+        <a class="btn btn-sm btn-primary header-cta btn-magnetic" href="#contact">Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -106,39 +107,97 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero" id="top">
+    <section class="hero is-entering" id="top">
       <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-ticks" aria-hidden="true">
+        <span class="hero-tick hero-tick-tl"></span>
+        <span class="hero-tick hero-tick-tr"></span>
+        <span class="hero-tick hero-tick-bl"></span>
+        <span class="hero-tick hero-tick-br"></span>
+      </div>
       <div class="container hero-layout">
-        <div class="hero-copy reveal">
-          <p class="badge">&lt; MMET · Texas A&amp;M /&gt;</p>
-          <h1>Hi, I'm <span class="accent">Everett Wong</span>.</h1>
-          <p class="hero-sub">
+        <div class="hero-copy">
+          <p class="badge hero-enter" style="--enter-i: 0">&lt; MMET · Texas A&amp;M /&gt;</p>
+          <h1 class="hero-enter" style="--enter-i: 1">
+            <span class="hero-greeting">Hi, I'm</span>
+            <span class="hero-name accent">Everett Wong</span><span class="hero-period">.</span>
+            <svg class="hero-plot-line" viewBox="0 0 280 14" preserveAspectRatio="none" aria-hidden="true">
+              <path class="hero-plot-path" d="M8 7 H272" fill="none" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="square"/>
+              <path class="hero-plot-ticks" d="M8 2 V12 M272 2 V12" fill="none" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+          </h1>
+          <p class="hero-sub hero-enter" style="--enter-i: 2">
             I study systems, build useful things, and care about work that holds up in the real world.
           </p>
-          <p class="hero-meta">MMET · Texas A&amp;M · College Station, TX · Open to internships</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View My Work</a>
+          <p class="hero-meta hero-enter" style="--enter-i: 3">
+            <span>MMET</span><span class="meta-dot" aria-hidden="true"></span>
+            <span>Texas A&amp;M</span><span class="meta-dot" aria-hidden="true"></span>
+            <span>College Station, TX</span><span class="meta-dot" aria-hidden="true"></span>
+            <span>Open to internships</span>
+          </p>
+          <div class="hero-actions hero-enter" style="--enter-i: 4">
+            <a class="btn btn-primary btn-magnetic" href="#projects">View My Work</a>
             <a class="btn btn-ghost" href="assets/img/Everett-Wong-Resume.pdf" download="Everett-Wong-Resume.pdf" type="application/pdf">Download Resume</a>
           </div>
         </div>
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="geo-frame">
-            <div class="geo-panel"></div>
-            <div class="geo-card">
-              <svg class="hero-schematic" viewBox="0 0 320 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
-                <title>Abstract engineering composition</title>
-                <rect x="24" y="28" width="272" height="304" rx="4" stroke="currentColor" stroke-opacity=".28"/>
-                <path class="schematic-dash" d="M48 72 H272 M48 112 H220 M48 152 H250 M48 192 H180" stroke="currentColor" stroke-opacity=".22" stroke-dasharray="4 6"/>
-                <path class="schematic-draw" d="M48 72 H272" stroke="#14B8A6" stroke-opacity=".45" stroke-width="1.2"/>
-                <circle class="schematic-ring" cx="218" cy="210" r="56" stroke="#14B8A6" stroke-opacity=".55"/>
-                <circle class="schematic-ring schematic-ring-delay" cx="218" cy="210" r="34" stroke="#7A1E2C" stroke-opacity=".75"/>
-                <circle cx="218" cy="210" r="6" fill="#14B8A6" fill-opacity=".8"/>
-                <path d="M218 154 V128 M218 266 V292 M162 210 H136 M274 210 H298" stroke="currentColor" stroke-opacity=".3"/>
-                <path d="M72 248 L128 300 L72 300 Z" fill="#7A1E2C" fill-opacity=".55"/>
-                <rect x="148" y="278" width="108" height="22" rx="2" fill="#14B8A6" fill-opacity=".2" stroke="#14B8A6" stroke-opacity=".5"/>
-                <text x="48" y="52" fill="currentColor" fill-opacity=".55" font-family="JetBrains Mono, monospace" font-size="11">SCHEMATIC_01</text>
-                <text x="48" y="328" fill="currentColor" fill-opacity=".4" font-family="JetBrains Mono, monospace" font-size="9">TOL ±0.1 · REV B</text>
-              </svg>
+        <div class="hero-visual hero-enter" style="--enter-i: 2">
+          <div class="hero-product">
+            <div class="hero-product-chrome">
+              <span class="geo-chrome-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="geo-chrome-label mono">Live · Skhedule</span>
+            </div>
+            <a class="hero-product-shot" href="#skhedule">
+              <img
+                src="assets/img/skhedule-event-dashboard.png"
+                alt="Skhedule event dashboard showing staged invites and seat capacity"
+                width="982"
+                height="358"
+                loading="eager"
+                decoding="async"
+              />
+            </a>
+            <p class="hero-product-cap mono">Finite-capacity event inviter · staged rounds</p>
+
+            <div class="geo-frame geo-instrument" id="geo-frame" data-parallax>
+              <div class="geo-panel geo-layer"></div>
+              <div class="geo-card geo-layer">
+                <div class="geo-chrome">
+                  <span class="geo-chrome-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="geo-chrome-label mono">DWG · LIVE</span>
+                </div>
+                <svg class="hero-schematic" viewBox="0 0 320 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                  <title>Abstract engineering composition</title>
+                  <g class="schematic-layer schematic-frame">
+                    <rect x="24" y="36" width="272" height="288" rx="2" stroke="currentColor" stroke-opacity=".22"/>
+                    <path d="M24 48 H48 M272 48 H296 M24 312 H48 M272 312 H296" stroke="currentColor" stroke-opacity=".35"/>
+                    <text x="48" y="58" fill="currentColor" fill-opacity=".5" font-family="JetBrains Mono, monospace" font-size="10">SCHEMATIC_01</text>
+                  </g>
+                  <g class="schematic-layer schematic-guides">
+                    <path class="schematic-dash" d="M48 84 H272 M48 122 H230 M48 160 H255 M48 198 H190" stroke="currentColor" stroke-opacity=".2" stroke-dasharray="3 5"/>
+                    <path class="schematic-draw" d="M48 84 H272" stroke="#14B8A6" stroke-opacity=".55" stroke-width="1.25"/>
+                  </g>
+                  <g class="schematic-layer schematic-focal">
+                    <circle class="schematic-ring" cx="218" cy="210" r="54" stroke="#14B8A6" stroke-opacity=".5"/>
+                    <circle class="schematic-ring schematic-ring-delay" cx="218" cy="210" r="32" stroke="#7A1E2C" stroke-opacity=".8"/>
+                    <circle cx="218" cy="210" r="5" fill="#14B8A6" fill-opacity=".9"/>
+                    <path d="M218 156 V132 M218 264 V288 M164 210 H140 M272 210 H296" stroke="currentColor" stroke-opacity=".28"/>
+                  </g>
+                  <g class="schematic-layer schematic-marks">
+                    <path d="M64 248 L118 296 L64 296 Z" fill="#7A1E2C" fill-opacity=".6"/>
+                    <rect x="148" y="286" width="100" height="18" rx="2" fill="#14B8A6" fill-opacity=".18" stroke="#14B8A6" stroke-opacity=".45"/>
+                    <text id="schematic-rev" x="48" y="334" fill="currentColor" fill-opacity=".42" font-family="JetBrains Mono, monospace" font-size="9">TOL ±0.1 · REV B</text>
+                  </g>
+                </svg>
+                <div class="schematic-hotspots">
+                  <button type="button" class="schematic-hotspot" data-hotspot="tol" style="left:18%;top:86%" title="Tolerance callout"><span></span>TOL</button>
+                  <button type="button" class="schematic-hotspot" data-hotspot="rev" style="left:58%;top:86%" title="Cycle drawing revision"><span></span>REV</button>
+                  <button type="button" class="schematic-hotspot" data-hotspot="focal" style="left:68%;top:54%" title="Focal datum"><span></span>Ø</button>
+                </div>
+                <div class="schematic-callout" id="schematic-callout" hidden></div>
+              </div>
             </div>
           </div>
         </div>
@@ -339,56 +398,8 @@
           <p class="section-lead">The problem, the decisions, and what shipped.</p>
         </header>
 
-        <article class="project featured reveal">
-          <div class="project-media">
-            <figure class="project-shot project-shot-hero">
-              <img
-                src="assets/img/skhedule-event-dashboard.png"
-                alt="Skhedule event detail: 2 of 4 seats filled, with Acceptances, Outstanding, and Not yet invited guest columns"
-                width="982"
-                height="358"
-                loading="eager"
-                decoding="async"
-              />
-              <figcaption class="mono">Active invite round — open invites match empty seats</figcaption>
-            </figure>
-            <div class="project-shot-grid">
-              <figure class="project-shot">
-                <img
-                  src="assets/img/skhedule-host-events.png"
-                  alt="Skhedule host dashboard with Draft, Inviting, and All seats filled events"
-                  width="991"
-                  height="316"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <figcaption class="mono">Host dashboard</figcaption>
-              </figure>
-              <figure class="project-shot">
-                <img
-                  src="assets/img/skhedule-guest-rsvp.png"
-                  alt="Skhedule guest RSVP page with Yes and No buttons"
-                  width="356"
-                  height="203"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <figcaption class="mono">Guest RSVP page</figcaption>
-              </figure>
-              <figure class="project-shot">
-                <img
-                  src="assets/img/skhedule-event-filled.png"
-                  alt="Skhedule event with all seats filled and calendar download"
-                  width="982"
-                  height="431"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <figcaption class="mono">All seats filled · calendar download</figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="project-body">
+        <article class="project featured project-evidence reveal" id="skhedule">
+          <header class="evidence-intro">
             <p class="project-type">Featured project · Event invitation tool</p>
             <h3>Skhedule</h3>
             <p class="case-summary">
@@ -400,45 +411,112 @@
               <li><span>Role</span> Sole designer and builder</li>
               <li><span>Live</span> <a href="https://skhedule.vercel.app" target="_blank" rel="noopener noreferrer">skhedule.vercel.app</a></li>
             </ul>
-            <div class="case-block">
-              <h4>Problem</h4>
-              <p>
-                Inviting everyone at once risks overbooking. Inviting one person at a time is slow. Hosts need a
-                system that invites just enough people, waits for RSVPs or timeouts, then moves down the list.
-              </p>
+          </header>
+
+          <div class="evidence-chapter" id="evidence-chapter">
+            <div class="evidence-sticky-wrap">
+              <div class="evidence-stage-rail" id="evidence-stage-rail" aria-hidden="true">
+                <button type="button" class="evidence-stage-dot is-active" data-stage="problem" title="Problem"></button>
+                <button type="button" class="evidence-stage-dot" data-stage="constraint" title="Constraint"></button>
+                <button type="button" class="evidence-stage-dot" data-stage="build" title="Build"></button>
+                <button type="button" class="evidence-stage-dot" data-stage="result" title="Result"></button>
+              </div>
+              <div class="evidence-visuals" id="evidence-visuals" aria-live="polite">
+                <figure class="evidence-frame is-active" data-stage="problem">
+                  <img
+                    src="assets/img/skhedule-host-events.png"
+                    alt="Skhedule host dashboard with Draft, Inviting, and All seats filled events"
+                    width="991"
+                    height="316"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <figcaption class="mono">Host dashboard — capacity states</figcaption>
+                </figure>
+                <figure class="evidence-frame" data-stage="constraint">
+                  <img
+                    src="assets/img/skhedule-guest-rsvp.png"
+                    alt="Skhedule guest RSVP page with Yes and No buttons"
+                    width="356"
+                    height="203"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="mono">Guest RSVP — replies arrive asynchronously</figcaption>
+                </figure>
+                <figure class="evidence-frame" data-stage="build">
+                  <img
+                    src="assets/img/skhedule-event-dashboard.png"
+                    alt="Skhedule event detail: 2 of 4 seats filled, with Acceptances, Outstanding, and Not yet invited guest columns"
+                    width="982"
+                    height="358"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="mono">Staged invites match open seats</figcaption>
+                </figure>
+                <figure class="evidence-frame" data-stage="result">
+                  <img
+                    src="assets/img/skhedule-event-filled.png"
+                    alt="Skhedule event with all seats filled and calendar download"
+                    width="982"
+                    height="431"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="mono">All seats filled · calendar download</figcaption>
+                </figure>
+              </div>
             </div>
-            <div class="case-block">
-              <h4>What I built</h4>
-              <ul>
-                <li>Ranked guest CSV upload and staged invitation rounds</li>
-                <li>Email invites with Yes/No RSVP links (guests do not need an account)</li>
-                <li>Host dashboard: Acceptances, Outstanding, and Not yet invited</li>
-                <li>Automatic timeouts, scheduled processing, Postgres hosting, and tests</li>
-              </ul>
+
+            <div class="evidence-steps">
+              <div class="evidence-step is-active" data-stage="problem">
+                <p class="evidence-step-label mono">01 · Problem</p>
+                <h4>Invite without overbooking</h4>
+                <p>
+                  Inviting everyone at once risks overbooking. Inviting one person at a time is slow. Hosts need a
+                  system that invites just enough people, waits for RSVPs or timeouts, then moves down the list.
+                </p>
+              </div>
+              <div class="evidence-step" data-stage="constraint">
+                <p class="evidence-step-label mono">02 · Constraint</p>
+                <h4>People reply on their own clock</h4>
+                <p>
+                  Guests answer Yes/No without accounts. Timeouts count as declines. The system has to stay correct
+                  while replies arrive out of order — never over-invite, never stall the queue.
+                </p>
+              </div>
+              <div class="evidence-step" data-stage="build">
+                <p class="evidence-step-label mono">03 · Build</p>
+                <h4>Staged rounds + a clear host view</h4>
+                <ul>
+                  <li>Ranked guest CSV upload and staged invitation rounds</li>
+                  <li>Email invites with Yes/No RSVP links</li>
+                  <li>Host columns: Acceptances, Outstanding, Not yet invited</li>
+                  <li>Automatic timeouts, scheduled processing, Postgres, tests</li>
+                </ul>
+              </div>
+              <div class="evidence-step" data-stage="result">
+                <p class="evidence-step-label mono">04 · Result</p>
+                <h4>Working MVP, end to end</h4>
+                <p>
+                  Shipped a live flow at
+                  <a href="https://skhedule.vercel.app" target="_blank" rel="noopener noreferrer">skhedule.vercel.app</a>
+                  — invite → RSVP → seats filled — with calendar download when the event is full.
+                </p>
+              </div>
             </div>
-            <div class="case-block">
-              <h4>Why it mattered</h4>
-              <p>
-                The hard part is staying correct while people reply at different times — never over-invite, treat
-                timeouts as declines, and only start the next round when seats open.
-              </p>
-            </div>
-            <div class="case-block">
-              <h4>Result</h4>
-              <p>
-                Shipped a working MVP at
-                <a href="https://skhedule.vercel.app" target="_blank" rel="noopener noreferrer">skhedule.vercel.app</a>
-                with a full invite → RSVP → seats-filled flow.
-              </p>
-            </div>
+          </div>
+
+          <footer class="evidence-footer">
             <p class="case-stack mono">Next.js 15 · TypeScript · Prisma · PostgreSQL · JWT · Nodemailer · Vercel</p>
             <div class="project-tags">
               <span>Next.js</span><span>TypeScript</span><span>Prisma</span><span>Full-stack</span><span>Algorithm</span>
             </div>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="https://skhedule.vercel.app" target="_blank" rel="noopener noreferrer">View live app</a>
+              <a class="btn btn-primary btn-magnetic" href="https://skhedule.vercel.app" target="_blank" rel="noopener noreferrer">View live app</a>
             </div>
-          </div>
+          </footer>
         </article>
 
         <div class="project-grid reveal">
@@ -631,6 +709,19 @@
       <p class="easter" title="Built from scratch by Everett Wong.">Built from scratch.</p>
     </div>
   </footer>
+
+  <div class="cmd-palette" id="cmd-palette" hidden>
+    <div class="cmd-backdrop" data-cmd-close tabindex="-1"></div>
+    <div class="cmd-panel" role="dialog" aria-modal="true" aria-labelledby="cmd-title">
+      <p class="cmd-title mono" id="cmd-title">Jump to</p>
+      <div class="cmd-input-row">
+        <span class="cmd-kbd mono" aria-hidden="true">⌘K</span>
+        <input type="search" id="cmd-input" placeholder="Search sections and links…" autocomplete="off" spellcheck="false" />
+      </div>
+      <ul class="cmd-list" id="cmd-list" role="listbox"></ul>
+      <p class="cmd-hint mono">↑↓ navigate · Enter open · Esc close</p>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
