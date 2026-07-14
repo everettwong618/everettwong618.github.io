@@ -21,8 +21,8 @@
   <meta name="twitter:description" content="Manufacturing &amp; Mechanical Engineering Technology student at Texas A&amp;M. Projects, coursework, and contact for internships." />
   <meta name="twitter:image" content="https://everettwong618.github.io/assets/img/og-banner.png" />
 
-  <meta name="theme-color" content="#0C1017" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230C1017'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='14' fill='%23E9ECEF'%3EEW%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0B1120" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1120'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='14' fill='%23E9ECEF'%3EEW%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,7 +77,6 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#mmet">MMET</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -87,6 +86,9 @@
           <span class="availability-dot" aria-hidden="true"></span>
           <span class="availability-text">Open to roles</span>
         </span>
+        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
         <a class="btn btn-sm btn-primary header-cta" href="#contact">Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
           <span></span><span></span><span></span>
@@ -103,7 +105,7 @@
           <p class="eyebrow">MMET · Texas A&amp;M · College Station, TX</p>
           <h1>Everett Wong</h1>
           <p class="hero-sub">
-            Manufacturing &amp; Mechanical Engineering Technology, Texas A&amp;M — graduating Fall 2028.
+            Manufacturing &amp; Mechanical Engineering Technology at Texas A&amp;M, graduating Fall 2028.
             I machine parts, model them, and work out what they cost to build.
           </p>
           <p class="hero-ask">
@@ -132,11 +134,41 @@
       </div>
     </section>
 
+    <!-- IDENTITY STRIP -->
+    <aside class="identity-strip" aria-label="Who I am">
+      <div class="container identity-strip-inner">
+        <div class="photo-frame identity-photo">
+          <picture>
+            <source srcset="assets/img/everett-wong-headshot.webp" type="image/webp" />
+            <img
+              src="assets/img/everett-wong-headshot.jpg"
+              alt="Everett Wong, MMET student at Texas A&amp;M"
+              width="96"
+              height="96"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
+        </div>
+        <div class="identity-copy">
+          <p>
+            I'm an MMET student at Texas A&amp;M — Manufacturing &amp; Mechanical Engineering Technology:
+            how products actually get designed, built, tested, and improved under real constraints.
+          </p>
+          <ul class="stat-row identity-stats">
+            <li><strong>TAMU · MMET</strong><span>Major</span></li>
+            <li><strong>College Station, TX</strong><span>Based</span></li>
+            <li><strong>Open to internships</strong><span>Availability</span></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
     <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
         <header class="section-header reveal">
-          <p class="section-label">// projects</p>
+          <p class="section-label">Projects</p>
           <h2>Selected work</h2>
           <p class="section-lead">The problem, the decisions, and what shipped.</p>
         </header>
@@ -165,8 +197,8 @@
                 <td>2026</td>
               </tr>
               <tr>
-                <td>Buddy Chair — design → drawings → BOM</td>
-                <td><span class="todo">TODO(everett): confirm role</span></td>
+                <td>Buddy Chair — assembly docs, BOM, nesting</td>
+                <td><span class="todo">TODO(everett): confirm role — see attribution</span></td>
                 <td class="col-hide-sm">Fusion 360 · DFM</td>
                 <td>2025</td>
               </tr>
@@ -315,7 +347,7 @@
     <section class="section" id="experience">
       <div class="container">
         <header class="section-header reveal">
-          <p class="section-label">// experience</p>
+          <p class="section-label">Experience</p>
           <h2>Experience that shapes how I work</h2>
         </header>
         <ol class="timeline reveal">
@@ -367,7 +399,7 @@
     <section class="section" id="skills">
       <div class="container">
         <header class="section-header reveal">
-          <p class="section-label">// skills</p>
+          <p class="section-label">Skills</p>
           <h2>Tools and methods I can put to work</h2>
           <p class="section-lead">Evidence from lab work, reports, and shipped projects — not adjectives.</p>
         </header>
@@ -375,105 +407,67 @@
           <div class="skill-group">
             <h3>Manufacturing &amp; Process</h3>
             <ul class="skill-list">
-              <li>Manual lathe &amp; mill<span class="skill-desc">Operated; machined a finished part (MMET 181 lab)</span></li>
-              <li>Injection moulding<span class="skill-desc">Hands-on machine operation (MMET 281 lab)</span></li>
-              <li>CNC process planning<span class="skill-desc">Milling, drilling, reaming, countersinking</span></li>
-              <li>Design for manufacture (DFM)<span class="skill-desc">Process selection, defect prediction, gate placement</span></li>
+              <li>Manual lathe &amp; mill<span class="skill-desc">operated; machined a finished part (MMET 181 lab)</span></li>
+              <li>Injection moulding<span class="skill-desc">hands-on machine operation (MMET 281 lab)</span></li>
+              <li>CNC process planning<span class="skill-desc">milling, drilling, reaming, countersinking</span></li>
+              <li>Design for manufacture (DFM)<span class="skill-desc">process selection, defect prediction, gate placement</span></li>
             </ul>
           </div>
           <div class="skill-group">
             <h3>CAD &amp; Technical Documentation</h3>
             <ul class="skill-list">
-              <li>Autodesk Fusion 360<span class="skill-desc">Part modelling, assemblies, exploded views</span></li>
-              <li>Engineering drawings<span class="skill-desc">Title blocks, dimensioning, general tolerance blocks (±.5 / ±.05 / ±.005)</span></li>
+              <li>Autodesk Fusion 360<span class="skill-desc">part modelling, assemblies, exploded views</span></li>
+              <li>Engineering drawings<span class="skill-desc">title blocks, dimensioning, general tolerance blocks (±.5 / ±.05 / ±.005)</span></li>
               <li>Bills of materials &amp; vendor sourcing<span class="skill-desc">McMaster-Carr, Home Depot</span></li>
-              <li>Sheet-nesting / material-utilisation layouts<span class="skill-desc">Layout planning for cut yield</span></li>
+              <li>Sheet-nesting / material-utilisation layouts</li>
               <li>Technical writing<span class="skill-desc">10-page engineering reports</span></li>
             </ul>
           </div>
           <div class="skill-group">
             <h3>Analysis</h3>
             <ul class="skill-list">
-              <li>Material selection<span class="skill-desc">From published property data (MatWeb)</span></li>
-              <li>Weighted decision matrices<span class="skill-desc">Multi-criteria concept scoring</span></li>
-              <li>Manufacturing cost modelling<span class="skill-desc">Setup amortisation, machine-hour rates, tooling breakeven</span></li>
+              <li>Material selection from published property data (MatWeb)</li>
+              <li>Weighted decision matrices</li>
+              <li>Manufacturing cost modelling<span class="skill-desc">setup amortisation, machine-hour rates, tooling breakeven</span></li>
             </ul>
           </div>
           <div class="skill-group">
             <h3>Web &amp; Digital</h3>
             <ul class="skill-list">
-              <li>HTML · CSS · JavaScript<span class="skill-desc">Hand-built pages</span></li>
-              <li>Next.js · TypeScript · Prisma · PostgreSQL<span class="skill-desc">Full-stack app work (Skhedule)</span></li>
-              <li>WordPress · PHP<span class="skill-desc">Builds, repairs, handoffs</span></li>
+              <li>HTML · CSS · JavaScript</li>
+              <li>Next.js · TypeScript · Prisma · PostgreSQL</li>
+              <li>WordPress · PHP</li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- MMET -->
-    <section class="section" id="mmet">
-      <div class="container mmet-layout">
-        <div class="mmet-copy reveal">
-          <p class="section-label">// what_i_study</p>
-          <h2>What is MMET?</h2>
-          <p>
-            Manufacturing and Mechanical Engineering Technology is about how products and physical systems get
-            designed, built, tested, documented, and improved in real environments. It combines CAD, materials,
-            mechanics, data, and clear technical communication.
-          </p>
-          <p>
-            In plain English: I learn how physical systems work, how to document them clearly, and how to make
-            decisions that hold up under real constraints.
-          </p>
-        </div>
-        <ol class="mmet-list reveal">
-          <li><span class="num">01</span><span>Manufacturing &amp; Assembly</span></li>
-          <li><span class="num">02</span><span>Materials</span></li>
-          <li><span class="num">03</span><span>CAD / Engineering Graphics</span></li>
-          <li><span class="num">04</span><span>Statics / Mechanics</span></li>
-          <li><span class="num">05</span><span>Statistics / Data Analysis</span></li>
-          <li><span class="num">06</span><span>Technical Writing</span></li>
-        </ol>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section class="section section-light" id="about">
       <div class="container about-layout">
-        <aside class="about-aside reveal">
-          <div class="photo-frame">
-            <picture>
-              <source srcset="assets/img/everett-wong-headshot.webp" type="image/webp" />
-              <img
-                src="assets/img/everett-wong-headshot.jpg"
-                alt="Everett Wong, MMET student at Texas A&amp;M"
-                width="480"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-          </div>
-          <ul class="stat-row">
-            <li><strong>TAMU</strong><span>MMET</span></li>
-            <li><strong>CS, TX</strong><span>Based</span></li>
-            <li><strong>Open</strong><span>to roles</span></li>
-          </ul>
-        </aside>
         <div class="about-copy reveal">
-          <p class="section-label">// about</p>
+          <p class="section-label">About</p>
           <h2>Engineering student. Systems thinker. Calm under pressure.</h2>
           <div class="divider"></div>
           <p>
-            I'm a Manufacturing and Mechanical Engineering Technology student at Texas A&amp;M. I like systems that
-            are clear, useful, and reliable — products designed, built, tested, and documented under real constraints.
+            I'm a Manufacturing and Mechanical Engineering Technology student at Texas A&amp;M. I learn how physical
+            systems work, how to document them clearly, and how to make decisions that hold up under real constraints —
+            CAD, materials, mechanics, data, and technical communication.
           </p>
           <p>
             My background mixes engineering coursework, client-facing communication, and hands-on web work. On campus
             I've supported students in Financial Aid Services; outside class I've spent years as a soccer referee.
             Both sharpened judgment and composure when things get noisy.
           </p>
+          <ol class="study-areas" aria-label="MMET study areas">
+            <li><span class="num">01</span><span>Manufacturing &amp; Assembly</span></li>
+            <li><span class="num">02</span><span>Materials</span></li>
+            <li><span class="num">03</span><span>CAD / Engineering Graphics</span></li>
+            <li><span class="num">04</span><span>Statics / Mechanics</span></li>
+            <li><span class="num">05</span><span>Statistics / Data Analysis</span></li>
+            <li><span class="num">06</span><span>Technical Writing</span></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -482,7 +476,7 @@
     <section class="section" id="contact">
       <div class="container contact-layout">
         <div class="contact-copy reveal">
-          <p class="section-label">// contact</p>
+          <p class="section-label">Contact</p>
           <p class="availability-inline" data-availability="open">
             <span class="availability-dot" aria-hidden="true"></span>
             <span class="availability-label">Open to internships and professional opportunities</span>
@@ -524,7 +518,7 @@
         </div>
         <aside class="contact-tips reveal">
           <h3>What helps in an email</h3>
-          <ul>
+          <ul class="tips-list">
             <li>Who you are and what role or topic you want to discuss</li>
             <li>Any deadline or timeline I should know about</li>
             <li>A link to the posting, brief, or related materials</li>

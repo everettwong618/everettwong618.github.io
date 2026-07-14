@@ -19,17 +19,21 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-      /* Surfaces & ink */
-      --bg:          #0C1017;
-      --bg-raised:   #141922;
+      /* Surfaces & ink — the ORIGINAL navy brand, retained. */
+      --bg:          #0B1120;
+      --bg-raised:   #161F2E;
       --text:        #E9ECEF;
       --text-mute:   #98A1AD;
       --hairline:    rgba(255, 255, 255, 0.09);
       --hairline-strong: rgba(255, 255, 255, 0.16);
 
-      /* One accent. Maroon. */
-      --accent:      #7A1E2C;  /* fills only — too dark for text on this bg */
-      --accent-lift: #B24455;  /* validated: passes contrast + lightness band on #0C1017 */
+      /* One accent: maroon.
+         --accent (#7A1E2C) measures 1.84:1 on this navy — it FAILS as text/links.
+         That contrast failure is why teal ended up carrying the whole site.
+         --accent-lift is the missing step: validated PASS on #0B1120.
+         Use --accent for FILLS only; --accent-lift for anything that must be read. */
+      --accent:      #7A1E2C;  /* fills only: buttons, 2px rules */
+      --accent-lift: #B24455;  /* text, links, marks, active states */
 
       /* Type scale — 1.25 ratio, fluid */
       --fs-display: clamp(2.25rem, 4.2vw, 3.25rem);
@@ -80,7 +84,7 @@
     .site-header {
       border-bottom: 1px solid var(--hairline);
       position: sticky; top: 0; z-index: 50;
-      background: rgba(12, 16, 23, 0.85);
+      background: rgba(11, 17, 32, 0.85);
       backdrop-filter: blur(12px);
     }
     .header-inner {

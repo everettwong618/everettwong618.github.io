@@ -8,11 +8,16 @@
 
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Theme toggle kept as no-op storage for satellite pages that still show the control.
-  // Homepage ships dark-only; light theme not polished (REDESIGN-PLAN §12).
+  // Theme (persisted). Light kept as a supported option — not removed (§13 deferred).
+  const stored = localStorage.getItem("ew-theme");
+  if (stored === "light" || stored === "dark") {
+    doc.setAttribute("data-theme", stored);
+  }
   const themeBtn = document.querySelector(".theme-toggle");
   themeBtn?.addEventListener("click", () => {
-    /* dark-only */
+    const next = doc.getAttribute("data-theme") === "light" ? "dark" : "light";
+    doc.setAttribute("data-theme", next);
+    localStorage.setItem("ew-theme", next);
   });
 
   // Mobile nav
@@ -166,8 +171,7 @@
     { label: "MMET 281 case", hint: "Process & materials", href: "case-mmet281.html", keywords: "hinge dfm fusion" },
     { label: "Experience", hint: "Roles", href: "#experience", keywords: "work jobs" },
     { label: "Skills", hint: "Tools", href: "#skills", keywords: "cad manufacturing" },
-    { label: "MMET", hint: "Major explainer", href: "#mmet", keywords: "engineering" },
-    { label: "About", hint: "Bio", href: "#about", keywords: "who me" },
+    { label: "About", hint: "Bio", href: "#about", keywords: "who me mmet" },
     { label: "Contact", hint: "Email / LinkedIn", href: "#contact", keywords: "hire internship" },
     { label: "Résumé", hint: "PDF download", href: "assets/img/Everett-Wong-Resume.pdf", keywords: "cv download", download: "Everett-Wong-Resume.pdf" },
     { label: "LinkedIn", hint: "Profile", href: "https://www.linkedin.com/in/everett-wong-8390b1276", keywords: "network", external: true },
