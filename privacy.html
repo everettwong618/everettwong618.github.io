@@ -7,7 +7,7 @@
   <meta name="description" content="Privacy policy for everettwong618.github.io — how contact information is used." />
   <link rel="canonical" href="https://everettwong618.github.io/privacy.html" />
   <meta name="theme-color" content="#0B1120" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1120'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='14' fill='%23F9FAFB'%3EEW%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1120'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='14' fill='%23E9ECEF'%3EEW%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,51 +17,69 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header is-scrolled" id="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html">EW</a>
+      <a class="logo" href="index.html" aria-label="Everett Wong home">EW</a>
       <nav class="nav" id="primary-nav" aria-label="Primary">
-        <a href="index.html#about">About</a>
         <a href="index.html#projects">Projects</a>
-        <a href="index.html#services" class="nav-soft">Services</a>
-        <a href="faq.html">FAQ</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <button class="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-icon" aria-hidden="true"></span></button>
-        <a class="btn btn-sm btn-primary header-cta" href="index.html">Home</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
+        <a class="btn btn-sm btn-primary header-cta" href="index.html#contact">Contact</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
+
   <main id="main">
     <section class="page-hero">
-      <div class="container prose">
+      <div class="container">
         <p class="section-label">Privacy</p>
         <h1>Privacy policy</h1>
+        <p class="section-lead">How contact information on this site is used.</p>
       </div>
     </section>
-    <section class="section section-dark" style="padding-top:0">
+    <section class="section">
       <div class="container prose">
-        <p>This site is a personal portfolio and freelance contact page operated by Everett Wong in College Station, TX.</p>
+        <p>This site is Everett Wong’s personal portfolio for MMET coursework and internship conversations, with occasional freelance web contact routes.</p>
         <h2>What I collect</h2>
         <p>If you email me, I receive the name, email, and message you choose to send. That information is used only to respond to your inquiry.</p>
-        <h2>What I don’t do</h2>
+        <h2>What I do not do</h2>
         <p>I do not sell personal information. Analytics, if enabled later, would be used only to understand aggregate traffic.</p>
         <h2>Contact</h2>
         <p>Questions about this policy: <a href="mailto:everettwong.studio@gmail.com">everettwong.studio@gmail.com</a></p>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
-    <div class="container page-footer-nav" aria-label="Footer">
-      <a href="index.html">Home</a>
-      <a href="index.html#projects">Projects</a>
-      <a href="index.html#services">Services</a>
-      <a href="faq.html">FAQ</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="index.html#contact">Contact</a>
+    <div class="container footer-top footer-top-satellite">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">EW</a>
+        <p>MMET student · Texas A&amp;M · College Station, TX</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <nav class="footer-nav" aria-label="Secondary">
+        <a href="faq.html">FAQ</a>
+        <a href="college-station-web-design.html">Local web work</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="privacy.html" class="is-active">Privacy</a>
+      </nav>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Everett Wong.</p>
+      <p>&copy; <span id="year"></span> Everett Wong. All rights reserved.</p>
     </div>
   </footer>
   <script src="script.js" defer></script>
