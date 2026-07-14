@@ -16,7 +16,7 @@ This is a **hybrid**, and it is a deliberate correction to an earlier, more redu
 ## 1. Hard constraints — never violate
 
 - **Never invent facts.** No tools, metrics, dates, employers, outcomes, or repos. Where a fact is missing, write a literal `TODO(everett):` placeholder and move on.
-- **Attribution.** MMET 105 Buddy Chair *part drawings* are **Zaid Al-Abdali's**. Everett owned the assembly drawing, the exploded view + BOM, the nesting layout, and the assembly instructions. Do not claim the part drawings. **Do not build `case-mmet105.html` until Everett confirms his role.**
+- **Attribution.** MMET 105 Buddy Chair *part drawings* are **Zaid Al-Abdali's** (title blocks in the team PDF). Everett owned the assembly drawing, the exploded view + BOM, the nesting layout, and the assembly instructions — confirmed from Drawn By title blocks in the same PDF. Case page: `case-mmet105.html`.
 - **Skhedule** — correct spelling. It is a **finite-capacity staged event inviter**, not a student calendar. Live at `skhedule.vercel.app`. Do **not** add a GitHub repo link; the code is not public.
 - **Chinese-American.** Not Filipino. No PHILSA.
 - **Keep the a11y work:** skip link, `:focus-visible`, `prefers-reduced-motion`, alt text, JSON-LD, ≥44px tap targets.
@@ -267,13 +267,13 @@ A scannable hairline table above the featured case. Mono for stack/year. No temp
 | --- | --- | --- | --- |
 | Skhedule — staged-invite event app | Sole designer & builder | Next.js · TS · Postgres | 2025 |
 | Process & Material Selection — hinge + eyewear | Sole author | Fusion 360 · DFM · MatWeb | 2026 |
-| Buddy Chair — assembly docs, BOM, nesting | `TODO(everett)` — see §1 | Fusion 360 · DFM | 2025 |
+| Buddy Chair — assembly docs, BOM, nesting | Assembly docs · exploded BOM · nesting · instructions | Fusion 360 · DFM | 2025 |
 | Local business landing page | Design & build | WordPress | 2024 |
 | Contact form recovery | Debug & handoff | WordPress · PHP | 2024 |
 
 ### 9.2 Case pages
 - **`case-mmet281.html` — BUILT.** Link it from the index and the project grid. It is also the visual reference for this whole redesign; its `<style>` block now uses the navy tokens above. It needs three assets (§12).
-- **`case-mmet105.html` — BLOCKED.** Do not build. See §1 attribution.
+- **`case-mmet105.html` — BUILT.** Role confirmed from team PDF title blocks. Part drawings remain Zaid Al-Abdali's and are not claimed.
 
 ### 9.3 Promote MMET 281 out of the card grid
 It is currently a three-line text card tied for last in a 2×2 grid — and it is the **only** thing on the site proving he is an *engineering* candidate rather than a web kid. Everything else is software or soft skills. It becomes a featured case with its own page.
@@ -404,6 +404,6 @@ Leave `TODO(everett):` and the `onerror` placeholders in place until these land.
 - `assets/img/case/hinge-cad-callouts.png` — Fusion **Capture Image** (not a screen grab: the report screenshots contain the Fusion toolbar and the Windows taskbar). Grid + view cube off, 2×.
 - `assets/img/case/glasses-cad-callouts.png` — same.
 - `assets/docs/MMET-281-Process-Material-Selection-Everett-Wong.pdf`
-- **Buddy Chair role confirmation** — unblocks `case-mmet105.html`.
+- Buddy Chair role — confirmed; case page live.
 - **Skhedule outcome metrics** — events / invites / overbookings prevented.
 - MMET 181 / 281 syllabi — to confirm any additional software for §10.

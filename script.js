@@ -169,6 +169,7 @@
     { label: "Projects", hint: "Selected work", href: "#projects", keywords: "work portfolio" },
     { label: "Skhedule", hint: "Featured case", href: "#skhedule", keywords: "app invite capacity" },
     { label: "MMET 281 case", hint: "Process & materials", href: "case-mmet281.html", keywords: "hinge dfm fusion" },
+    { label: "Buddy Chair", hint: "Assembly · BOM · nesting", href: "case-mmet105.html", keywords: "mmet105 plywood fusion" },
     { label: "Experience", hint: "Roles", href: "#experience", keywords: "work jobs" },
     { label: "Skills", hint: "Tools", href: "#skills", keywords: "cad manufacturing" },
     { label: "About", hint: "Bio", href: "#about", keywords: "who me mmet" },

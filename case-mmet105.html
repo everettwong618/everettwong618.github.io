@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buddy Chair — Assembly Docs, BOM &amp; Nesting | Everett Wong</title>
+  <meta name="description" content="MMET 105 case study: Buddy Chair team project — assembly drawing, exploded view and BOM, sheet nesting layout, and assembly instructions by Everett Wong." />
+  <link rel="canonical" href="https://everettwong618.github.io/case-mmet105.html" />
+  <meta name="theme-color" content="#0B1120" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CASE STUDY — also the working prototype of the new design system.
+       Tokens here are the ones REDESIGN-PLAN.md proposes for the whole site.
+       ========================================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      /* Surfaces & ink — the ORIGINAL navy brand, retained. */
+      --bg:          #0B1120;
+      --bg-raised:   #161F2E;
+      --text:        #E9ECEF;
+      --text-mute:   #98A1AD;
+      --hairline:    rgba(255, 255, 255, 0.09);
+      --hairline-strong: rgba(255, 255, 255, 0.16);
+
+      /* One accent: maroon.
+         --accent (#7A1E2C) measures 1.84:1 on this navy — it FAILS as text/links.
+         That contrast failure is why teal ended up carrying the whole site.
+         --accent-lift is the missing step: validated PASS on #0B1120.
+         Use --accent for FILLS only; --accent-lift for anything that must be read. */
+      --accent:      #7A1E2C;  /* fills only: buttons, 2px rules */
+      --accent-lift: #B24455;  /* text, links, marks, active states */
+
+      /* Type scale — 1.25 ratio, fluid */
+      --fs-display: clamp(2.25rem, 4.2vw, 3.25rem);
+      --fs-h2:      clamp(1.5rem, 2.4vw, 2rem);
+      --fs-h3:      clamp(1.1rem, 1.4vw, 1.25rem);
+      --fs-lead:    clamp(1.1rem, 1.3vw, 1.25rem);
+      --fs-body:    1.0625rem;
+      --fs-small:   0.9375rem;
+      --fs-micro:   0.8125rem;
+
+      /* Spacing */
+      --space-section: 96px;
+      --space-block: 48px;
+
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+      --measure: 66ch;
+      --max: 1080px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: var(--fs-body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { width: min(100% - 2.5rem, var(--max)); margin-inline: auto; }
+
+    a { color: inherit; text-underline-offset: 0.18em; }
+    a:hover { color: var(--accent-lift); }
+    img { display: block; max-width: 100%; height: auto; }
+
+    :focus-visible { outline: 2px solid var(--accent-lift); outline-offset: 3px; }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -100px;
+      background: var(--accent); color: #fff; padding: 0.6rem 1rem;
+      z-index: 100; border-radius: 4px; text-decoration: none;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ---- Header ---- */
+    .site-header {
+      border-bottom: 1px solid var(--hairline);
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 64px; gap: 1rem;
+    }
+    .logo {
+      font-family: var(--font-mono); font-weight: 500;
+      text-decoration: none; letter-spacing: 0.02em;
+    }
+    .back-link {
+      font-size: var(--fs-micro); color: var(--text-mute);
+      text-decoration: none; font-family: var(--font-mono);
+    }
+    .back-link:hover { color: var(--accent-lift); }
+
+    /* ---- Eyebrow: muted grey, NOT coloured. This is the de-templating move. ---- */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      letter-spacing: 0.06em;
+      color: var(--text-mute);
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+    }
+
+    /* ---- Case hero ---- */
+    .case-hero { padding: 72px 0 56px; border-bottom: 1px solid var(--hairline); }
+    .case-hero h1 {
+      font-size: var(--fs-display);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      margin: 0 0 1.25rem;
+      max-width: 20ch;
+    }
+    .case-lead {
+      font-size: var(--fs-lead);
+      color: var(--text-mute);
+      max-width: 60ch;
+      margin: 0 0 2.5rem;
+      line-height: 1.55;
+    }
+
+    /* Spec table — the drawing-sheet motif, applied to REAL data */
+    .spec-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .spec-table div {
+      padding: 1rem 1.25rem 1rem 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .spec-table dt, .spec-key {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--text-mute);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .spec-val { font-size: var(--fs-small); font-weight: 500; }
+
+    /* ---- Sections ---- */
+    .section { padding: var(--space-section) 0; border-bottom: 1px solid var(--hairline); }
+    .section:last-of-type { border-bottom: 0; }
+    h2 {
+      font-size: var(--fs-h2);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      margin: 0 0 1rem;
+    }
+    h3 {
+      font-size: var(--fs-h3);
+      font-weight: 600;
+      margin: 0 0 0.65rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.15rem; max-width: var(--measure); }
+    p:last-child { margin-bottom: 0; }
+    .muted { color: var(--text-mute); }
+
+    /* Callout — the one decision that mattered */
+    .keycall {
+      border-left: 2px solid var(--accent-lift);
+      padding: 0.35rem 0 0.35rem 1.25rem;
+      margin: 2rem 0;
+      max-width: var(--measure);
+    }
+    .keycall .spec-key { margin-bottom: 0.5rem; }
+    .keycall p { font-size: var(--fs-lead); line-height: 1.5; margin: 0; }
+
+    /* ---- Figures ---- */
+    figure { margin: 2rem 0; }
+    figure img {
+      width: 100%;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      background: var(--bg-raised);
+    }
+    figcaption {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--text-mute);
+      margin-top: 0.75rem;
+      line-height: 1.5;
+    }
+    /* Placeholder shown when the export isn't in place yet */
+    .fig-pending {
+      border: 1px dashed var(--hairline-strong);
+      border-radius: 4px;
+      background: var(--bg-raised);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--text-mute);
+      line-height: 1.7;
+    }
+    .fig-pending strong { color: var(--accent-lift); font-weight: 500; }
+
+    /* ---- Data tables ---- */
+    .table-wrap { overflow-x: auto; margin: 2rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-small);
+      min-width: 560px;
+    }
+    caption {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--text-mute);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding-bottom: 0.85rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.85rem 1rem 0.85rem 0;
+      border-bottom: 1px solid var(--hairline);
+      vertical-align: top;
+    }
+    thead th {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      font-weight: 500;
+      color: var(--text-mute);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom-color: var(--hairline-strong);
+    }
+    tbody th { font-weight: 600; }
+    .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .pick {
+      color: var(--accent-lift);
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- Chart ---- */
+    .chart-figure { margin: 2.5rem 0 1rem; }
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .chart-panel { min-width: 0; }
+    .chart-title {
+      font-size: var(--fs-small);
+      font-weight: 600;
+      margin: 0 0 0.15rem;
+    }
+    .chart-sub {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--text-mute);
+      margin: 0 0 0.75rem;
+    }
+    .chart-panel svg { width: 100%; height: auto; overflow: visible; }
+    .grid-line { stroke: var(--hairline); stroke-width: 1; }
+    .axis-line { stroke: var(--hairline-strong); stroke-width: 1; }
+    .tick-text {
+      fill: var(--text-mute);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-variant-numeric: tabular-nums;
+    }
+    .bar {
+      fill: var(--accent-lift);
+      transition: fill 140ms ease;
+    }
+    .bar-group:hover .bar { fill: #C9566A; }
+    .bar-label {
+      fill: var(--text);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-variant-numeric: tabular-nums;
+      text-anchor: middle;
+    }
+    .cat-label {
+      fill: var(--text-mute);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-anchor: middle;
+    }
+
+    /* ---- Reflection ---- */
+    .lesson-list { list-style: none; margin: 0; padding: 0; max-width: var(--measure); }
+    .lesson-list li {
+      border-top: 1px solid var(--hairline);
+      padding: 1.5rem 0;
+    }
+    .lesson-list li:last-child { border-bottom: 1px solid var(--hairline); }
+
+    /* ---- Footer ---- */
+    .case-footer { padding: 64px 0; border-top: 1px solid var(--hairline); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      min-height: 44px; padding: 0.7rem 1.35rem;
+      background: var(--accent); color: #fff;
+      border: 1px solid transparent; border-radius: 4px;
+      text-decoration: none; font-size: var(--fs-small); font-weight: 500;
+    }
+    .btn:hover { background: #94263a; color: #fff; }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border-color: var(--hairline-strong);
+    }
+    .btn-ghost:hover { background: transparent; border-color: var(--accent-lift); color: var(--accent-lift); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+
+    .source-note {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--text-mute);
+      line-height: 1.7;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--hairline);
+      max-width: var(--measure);
+    }
+
+    @media (max-width: 640px) {
+      :root { --space-section: 64px; }
+      .case-hero { padding: 48px 0 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">EW</a>
+      <a class="back-link" href="index.html#projects">← All work</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="container">
+        <p class="eyebrow">MMET 105 · Team project · Lab</p>
+        <h1>Buddy Chair — from parts to a buildable assembly.</h1>
+        <p class="case-lead">
+          A dual-seat plywood chair selected from a five-concept design matrix. My share of the package was the
+          documentation that turns individual parts into something you can nest, source, and assemble:
+          the assembly drawing, exploded view and BOM, sheet-nesting layout, and step-by-step instructions.
+        </p>
+
+        <div class="spec-table">
+          <div>
+            <p class="spec-key">My role</p>
+            <p class="spec-val">Assembly drawing · exploded view &amp; BOM · nesting · assembly instructions</p>
+          </div>
+          <div>
+            <p class="spec-key">Not mine</p>
+            <p class="spec-val">Individual part drawings — Zaid Al-Abdali</p>
+          </div>
+          <div>
+            <p class="spec-key">Tools</p>
+            <p class="spec-val">Autodesk Fusion 360 · McMaster-Carr · Home Depot</p>
+          </div>
+          <div>
+            <p class="spec-key">Hardware</p>
+            <p class="spec-val">51× 1/4-20 flat heads · 51× tee-nut inserts · 3/4&quot; plywood</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">01 — Concept selection</p>
+        <h2>Buddy Chair won a six-criterion matrix.</h2>
+        <p>
+          The team scored five concepts — Normal Chair, Soccer Ball, Wavy Chair, Gorilla Couch, and Buddy Chair —
+          on style, structure, durability, comfort, material quality, and manufacturability (60 points possible).
+          Buddy Chair led at <strong>47 / 60</strong>, with a perfect 10 on manufacturability.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption>Design matrix totals</caption>
+            <thead>
+              <tr>
+                <th scope="col">Concept</th>
+                <th scope="col">Total / 60</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Buddy Chair <span class="pick">← selected</span></th><td class="num">47</td></tr>
+              <tr><th scope="row">Gorilla Couch</th><td class="num">43</td></tr>
+              <tr><th scope="row">Wavy Chair</th><td class="num">40</td></tr>
+              <tr><th scope="row">Normal Chair</th><td class="num">37</td></tr>
+              <tr><th scope="row">Soccer Ball</th><td class="num">36</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">02 — Assembly model</p>
+        <h2>Two seats, offset — fully hardware-detailed in Fusion.</h2>
+        <p>
+          The finished CAD model carries the plywood panels plus every screw and tee nut in place.
+          Drawn by me; filename on the capture marks the file as Everett W.
+        </p>
+        <figure>
+          <img
+            src="assets/img/case/buddy-assembly-cad.png"
+            alt="Autodesk Fusion 360 assembly of the Buddy Chair with wood-grain panels and visible screws and tee nuts."
+            width="1918" height="1078"
+            loading="eager" decoding="async"
+          />
+          <figcaption>Buddy Chair completed CAD with fasteners shown. Capture from the team report (includes Fusion UI).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">03 — Nesting</p>
+        <h2>Parts laid out on one sheet before anything is cut.</h2>
+        <p>
+          Nesting is the manufacturability check that scored a 10 on the matrix: fit the plywood parts onto
+          stock so material waste is visible before you buy another sheet.
+        </p>
+        <figure>
+          <img
+            src="assets/img/case/buddy-nesting.png"
+            alt="Fusion 360 nesting layout of Buddy Chair plywood parts arranged on a wood-grain sheet."
+            width="2048" height="1252"
+            loading="lazy" decoding="async"
+          />
+          <figcaption>Sheet nesting layout for the Buddy Chair parts. Capture from the team report.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">04 — Exploded view &amp; BOM</p>
+        <h2>Drawn by Everett Wong — callouts tied to a real parts list.</h2>
+        <p>
+          The exploded drawing is the contract between CAD and the shop floor: balloon numbers match the BOM,
+          plywood is 3/4&quot; from Home Depot, and fasteners are sourced from McMaster-Carr
+          (1/4-20 flat heads and tee-nut inserts, 51 each).
+        </p>
+        <figure>
+          <img
+            src="assets/img/case/buddy-exploded-bom.png"
+            alt="Engineering drawing of the Buddy Chair exploded assembly with bill of materials table and title block drawn by Everett Wong."
+            width="1449" height="2048"
+            loading="lazy" decoding="async"
+          />
+          <figcaption>Exploded assembly view and BOM. Title block: Drawn By Everett Wong.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Bill of materials — from the assembly drawing</caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Part</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Material / vendor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" class="num">11</th><td>Chair Legs</td><td class="num">8</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">17</th><td>Chair Side Arms</td><td class="num">2</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">18</th><td>Chair Middle Arm</td><td class="num">1</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">8</th><td>Chair Bottoms</td><td class="num">2</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">6</th><td>Chair Backs</td><td class="num">2</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">7</th><td>Chair Middle Wall</td><td class="num">1</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">14</th><td>Chair Side Walls</td><td class="num">2</td><td>Plywood · Home Depot</td></tr>
+              <tr><th scope="row" class="num">21</th><td>1/4-20 flat head screws</td><td class="num">51</td><td>Steel · McMaster-Carr</td></tr>
+              <tr><th scope="row" class="num">19</th><td>1/4-20 tee nut inserts</td><td class="num">51</td><td>Steel · McMaster-Carr</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="keycall">
+          <p class="spec-key">Drawing notes that matter on the floor</p>
+          <p>
+            Dimensions in inches. Pre-drill before assembly. Lightly sand / break sharp edges.
+            Optional wood glue at major joints — do not overtighten screws into plywood.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">05 — Assembly instructions</p>
+        <h2>A sequence someone else can follow without me in the room.</h2>
+        <p>
+          Orthographic + isometric assembly views (Drawn By Everett Wong) plus a numbered build list:
+          verify hardware, pre-drill, install tee nuts from the hidden faces, legs to bottoms,
+          walls, backs, then arms — finish with a square / tightness check.
+        </p>
+        <figure>
+          <img
+            src="assets/img/case/buddy-assembly-drawing.png"
+            alt="Buddy Chair assembly drawing with multiple orthographic views, isometric view, and title block drawn by Everett Wong."
+            width="1448" height="2048"
+            loading="lazy" decoding="async"
+          />
+          <figcaption>Assembly drawing used with the written instructions. Title block: Drawn By Everett Wong.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Build sequence</caption>
+            <thead>
+              <tr>
+                <th scope="col">Step</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" class="num">0</th><td>Gather parts and hardware per BOM</td></tr>
+              <tr><th scope="row" class="num">1</th><td>Pre-drill all screw and tee-nut holes per the part drawings</td></tr>
+              <tr><th scope="row" class="num">2</th><td>Install tee nuts from hidden / back faces, flanges flush</td></tr>
+              <tr><th scope="row" class="num">3</th><td>Assemble eight legs to the two bottoms</td></tr>
+              <tr><th scope="row" class="num">4</th><td>Attach side walls and middle wall to the bottoms</td></tr>
+              <tr><th scope="row" class="num">5</th><td>Install the two back panels</td></tr>
+              <tr><th scope="row" class="num">6</th><td>Mount side arms and middle arm</td></tr>
+              <tr><th scope="row" class="num">7</th><td>Final check — joints tight, chair sits square, edges sanded</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">06 — Attribution</p>
+        <h2>What I own vs. what I don't claim.</h2>
+        <ul class="lesson-list">
+          <li>
+            <h3>My deliverables</h3>
+            <p class="muted">
+              Full assembly CAD (with fasteners), assembly drawing, exploded view and BOM, nesting layout,
+              and the written assembly instructions.
+            </p>
+          </li>
+          <li>
+            <h3>Part drawings — Zaid Al-Abdali</h3>
+            <p class="muted">
+              The individual orthographic part sheets (title blocks Drawn By Zaid Al-Abdali) are his.
+              They are referenced for hole locations during pre-drill, but they are not presented here as my work.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-footer">
+      <div class="container">
+        <h2>Related work</h2>
+        <p class="muted">
+          Process and material selection for a CNC hinge and injection-moulded frames is a separate case.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="case-mmet281.html">MMET 281 case study</a>
+          <a class="btn btn-ghost" href="index.html#projects">← All work</a>
+        </div>
+        <p class="source-note">
+          Figures extracted from the team's MMET 105 Lab Team Project PDF report.<br />
+          Screenshots retain Fusion UI as submitted; cleaner Capture Image exports can replace them later.<br />
+          Part drawings credited to Zaid Al-Abdali from title blocks in that report.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
